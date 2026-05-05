@@ -1,9 +1,11 @@
 import axios from 'axios';
 import * as SecureStore from 'expo-secure-store';
 
-// Change this to your backend URL when running on a physical device
-// For Android emulator, use http://10.0.2.2:8080
-// For iOS simulator, use http://localhost:8080
+// Change this to your backend URL based on your environment:
+// - Android emulator: http://10.0.2.2:8080
+// - iOS simulator:    http://localhost:8080
+// - Physical device:  http://<your-computer-ip>:8080
+// You can also set this via a .env file with react-native-dotenv or expo-constants.
 const BASE_URL = 'http://10.0.2.2:8080';
 
 const TOKEN_KEY = 'auth_token';

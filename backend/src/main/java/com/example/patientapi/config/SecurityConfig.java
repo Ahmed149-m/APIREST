@@ -23,7 +23,10 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
+            // CSRF is intentionally disabled: this API uses stateless JWT authentication,
+            // not session-based auth, so CSRF tokens are not applicable or needed.
             .csrf(AbstractHttpConfigurer::disable)
+            // NOTE: In production, restrict allowedOriginPattern to your frontend's domain(s).
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/auth/**").permitAll()
